@@ -30,6 +30,8 @@ try {
                 '.ico'  { 'image/x-icon' }
                 '.woff2'{ 'font/woff2' }
                 '.woff' { 'font/woff' }
+                '.ttf'  { 'font/ttf' }
+                '.webmanifest' { 'application/manifest+json' }
                 default { 'application/octet-stream' }
             }
             $context.Response.ContentType = $mime
