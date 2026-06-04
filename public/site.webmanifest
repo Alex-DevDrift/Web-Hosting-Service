@@ -1,0 +1,15 @@
+{
+  "name": "Web Hosting Service",
+  "short_name": "WebHost",
+  "icons": [
+    {
+      "src": "assets/img/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#eb566c",
+  "background_color": "#ffffff"
+}

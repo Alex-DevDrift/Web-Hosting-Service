@@ -1,0 +1,6 @@
+/* Project-level overrides for the React upgrade live here.
+   The original template styles are loaded from /public/assets/css in layout.js. */
+
+html {
+  scroll-behavior: smooth;
+}
