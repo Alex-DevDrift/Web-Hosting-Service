@@ -1,6 +1,10 @@
-import StaticMarkup from './StaticMarkup';
-import { backTopHtml } from '../content/shared';
-
 export default function BackToTop() {
-  return <StaticMarkup html={backTopHtml} />;
+  return (
+    <>
+<div id="back-top">
+  <a title="Go to Top" href="#"> <i className="fas fa-level-up-alt" /></a>
+</div>
+
+    </>
+  );
 }

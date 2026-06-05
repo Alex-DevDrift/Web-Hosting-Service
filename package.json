@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "eslint": "^9.0.0",
-    "eslint-config-next": "^15.3.3"
+    "eslint-config-next": "^15.3.3",
+    "htmltojsx": "^0.3.0"
   }
 }

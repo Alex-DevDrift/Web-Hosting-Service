@@ -1,6 +1,17 @@
-import StaticMarkup from './StaticMarkup';
-import { preloaderHtml } from '../content/shared';
-
 export default function Preloader() {
-  return <StaticMarkup html={preloaderHtml} />;
+  return (
+    <>
+<div id="preloader-active">
+  <div className="preloader d-flex align-items-center justify-content-center">
+    <div className="preloader-inner position-relative">
+      <div className="preloader-circle" />
+      <div className="preloader-img pere-text">
+        <img src="/assets/img/logo/loder.jpg" alt="" />
+      </div>
+    </div>
+  </div>
+</div>
+
+    </>
+  );
 }
