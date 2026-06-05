@@ -1,107 +1,55 @@
-# Final Architecture & Tech Stack Overview
+# Web Hosting Service (Next.js Application)
 
-## 1. Tech Stack
-- **Framework**: Next.js 15 (App Router Architecture)
+Welcome to the Web Hosting Service application! This project was seamlessly migrated from a static HTML template into a modern **React + Next.js 15 (App Router)** architecture while retaining all of the original design aesthetics, plugins, and functionality.
+
+## 🚀 Quick Start (Windows)
+
+We've made starting the application extremely easy for Windows users.
+
+1. **Install Dependencies**
+   Before running the app for the first time, make sure you have [Node.js](https://nodejs.org/) installed, and install the project dependencies by opening your command prompt in this directory and running:
+   ```bash
+   npm install
+   ```
+
+2. **Run the Application**
+   Simply double-click the **`run.bat`** file located in the root folder (`D:\My Projects\GitHub-Projects\Web-Hosting-Service\run.bat`).
+   
+   This script will automatically:
+   - Start the Next.js development server in the background.
+   - Wait for the code to compile.
+   - Open your default web browser to [http://localhost:3000](http://localhost:3000).
+
+## 🛠️ Tech Stack & Architecture
+
+- **Framework**: Next.js 15 (App Router)
 - **UI Library**: React 19
-- **Styling**: Vanilla CSS, Bootstrap (loaded via public assets)
-- **Scripts & Plugins**: jQuery, Slick Carousel, Owl Carousel, WOW.js, Magnific Popup (loaded as static assets)
-- **Code Quality**: ESLint
+- **Styling**: Vanilla CSS, Bootstrap
+- **Scripts**: jQuery, Slick Carousel, WOW.js, Magnific Popup
 
----
+> **Note on Architecture:** For an in-depth look at how the file paths are structured and how the Next.js layouts wrap each page component, please check out the **[FINAL_ARCHITECTURE.md](./FINAL_ARCHITECTURE.md)** file!
 
-## 2. Page to File Mapping (Flow Chart)
+## 📁 Key File Locations
 
-Below is an easy-to-read flow chart showing exactly which file controls which web page in your new React application.
+If you want to modify the content of any page, navigate directly to its specific folder inside `src/app/`. Each page has been broken out into its own standalone React component:
 
-```mermaid
-graph TD
-    %% Define styles
-    classDef router fill:#3178c6,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef page fill:#2e8555,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef component fill:#e3b341,stroke:#fff,stroke-width:2px,color:#000;
-    classDef content fill:#6c757d,stroke:#fff,stroke-width:2px,color:#fff;
+- **Home Page**: `src/app/page.js`
+- **About Page**: `src/app/about/page.js`
+- **Services Page**: `src/app/services/page.js`
+- **Blog Page**: `src/app/blog/page.js`
+- **Blog Details**: `src/app/blog-details/page.js`
+- **Contact Page**: `src/app/contact/page.js`
 
-    %% Core Application
-    App((Next.js App)) --> Layout[Global Layout\nsrc/app/layout.js]:::router
-    
-    %% Shared Components
-    Layout -.-> Navbar[Navbar Component\nsrc/app/components/Navbar.js]:::component
-    Layout -.-> Footer[Footer Component\nsrc/app/components/Footer.js]:::component
-    Layout -.-> Preloader[Preloader\nsrc/app/components/Preloader.js]:::component
+**Global Components:**
+Headers, Footers, and Preloader components are located in `src/app/components/` and are automatically injected into every page via the `src/app/layout.js` file.
 
-    %% Pages
-    Layout --> Home[Home Page '/'\nsrc/app/page.js]:::page
-    Layout --> About[About Page '/about'\nsrc/app/about/page.js]:::page
-    Layout --> Services[Services Page '/services'\nsrc/app/services/page.js]:::page
-    Layout --> Contact[Contact Page '/contact'\nsrc/app/contact/page.js]:::page
-    Layout --> Blog[Blog Page '/blog'\nsrc/app/blog/page.js]:::page
-    Layout --> BlogDetails[Blog Details '/blog-details'\nsrc/app/blog-details/page.js]:::page
-    Layout --> Elements[Elements Page '/elements'\nsrc/app/elements/page.js]:::page
+**Public Assets:**
+All CSS, images, and fonts from the legacy version are served statically from the `public/assets/` directory. Do not delete the `public/assets/fonts/` folder, as it powers all of the social media logos and UI arrows across the site!
 
-    %% Content Injection
-    PagesContent[(HTML Content\nsrc/app/content/pages.js)]:::content
-    PagesContent -. "Injects raw HTML" .-> Home
-    PagesContent -. "Injects raw HTML" .-> About
-    PagesContent -. "Injects raw HTML" .-> Services
-    PagesContent -. "Injects raw HTML" .-> Contact
-    PagesContent -. "Injects raw HTML" .-> Blog
-    PagesContent -. "Injects raw HTML" .-> BlogDetails
-    PagesContent -. "Injects raw HTML" .-> Elements
-```
+## 🔧 Manual Commands
 
----
+If you prefer using the terminal over `run.bat`, you can use the standard Next.js commands:
 
-## 3. Detailed Folder Tree
-
-Here is the exact folder structure of your Next.js application, highlighting the purpose of each directory.
-
-```text
-Web-Hosting-Service/
-├── .env.local                    # Stores environment variables (e.g., API Keys) safely
-├── next.config.js                # Next.js configuration settings
-├── package.json                  # Node.js dependencies and scripts (React 19, Next 15)
-├── public/                       # Publicly accessible static files
-│   ├── assets/                   # Carried over from legacy HTML site
-│   │   ├── css/                  # Legacy stylesheets (Bootstrap, plugins, style.css)
-│   │   ├── fonts/                # Custom fonts (Flaticon, FontAwesome, Themify)
-│   │   ├── img/                  # All images and graphics used on the site
-│   │   └── js/                   # Legacy scripts (jQuery, Slick, WOW.js, main.js)
-│   └── site.webmanifest          # PWA/Favicon manifest
-└── src/
-    └── app/                      # App Router Directory (Next.js 15)
-        ├── globals.css           # Global CSS overrides for the React app
-        ├── layout.js             # The main wrapper layout (contains Header, Footer, Scripts)
-        ├── page.js               # Code for the Home page (/)
-        │
-        ├── about/
-        │   └── page.js           # Code for the About page (/about)
-        ├── blog/
-        │   └── page.js           # Code for the Blog page (/blog)
-        ├── blog-details/
-        │   └── page.js           # Code for the Blog Details page (/blog-details)
-        ├── contact/
-        │   └── page.js           # Code for the Contact page (/contact)
-        ├── elements/
-        │   └── page.js           # Code for the Elements page (/elements)
-        ├── services/
-        │   └── page.js           # Code for the Services page (/services)
-        │
-        ├── components/           # Reusable React components
-        │   ├── BackToTop.js      # Scroll to top button logic
-        │   ├── Footer.js         # Footer UI component
-        │   ├── Navbar.js         # Header/Navbar UI component
-        │   ├── Preloader.js      # Initial loading spinner UI
-        │   ├── PreloaderController.js # Logic to handle removing the preloader
-        │   ├── StaticMarkup.js   # Helper to safely render legacy HTML strings
-        │   └── TemplateScripts.js# Script loader for the legacy JS plugins
-        │
-        └── content/              # Storage for hardcoded legacy HTML strings
-            ├── pages.js          # Contains strings like `contactHtml`, `aboutHtml`, etc.
-            └── shared.js         # Contains strings for `headHtml` (metadata, styles)
-```
-
-### Explanation of the Architecture:
-1. **Routing (`src/app/*/page.js`)**: In Next.js, every folder inside `src/app/` automatically becomes a route URL. The `page.js` file inside it acts as the screen for that URL.
-2. **Layout (`src/app/layout.js`)**: This file wraps all the pages. It automatically mounts the `Navbar`, `Footer`, and legacy `TemplateScripts` on every page so you don't have to rewrite them.
-3. **Content Extraction (`src/app/content/pages.js`)**: Since this app was migrated directly from plain HTML files, the massive bodies of HTML are stored as variables in `pages.js` to keep the React components (`page.js`) clean and readable.
-4. **Static Assets (`public/assets/`)**: All CSS, Fonts, Images, and jQuery Scripts from your previous HTML version live here and are served statically to preserve the original design.
+- Start the development server: `npm run dev`
+- Build the project for production: `npm run build`
+- Start the production server: `npm run start`
